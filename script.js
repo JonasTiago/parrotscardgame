@@ -63,11 +63,11 @@ function selecionarCarta(carta) {
    if (!primeiraCarta) {
         selecionadas.push(carta) 
         primeiraCarta = carta.dataset.carta;
-        console.log('primeira')
+
     }else {
         selecionadas.push(carta)
         segundaCarta = carta.dataset.carta;
-        console.log('segunda')
+
     }
 
     if(selecionadas.length == 2){
@@ -86,15 +86,16 @@ function selecionarCarta(carta) {
 let pares = 0;
 function comparandoCartas() {
     if(primeiraCarta == segundaCarta){
-        console.log('igual')
         pares++
         setTimeout(fimDeJogo, 600)
+
     } else{
-        console.log('diferente')
         selecionadas.forEach( (carta)=> {
             carta.classList.remove('giro')
         })
+
     }
+
     primeiraCarta = 0; 
     segundaCarta = 0;
     jogadas++
@@ -105,11 +106,14 @@ function comparandoCartas() {
 /* Jogo0 finalizado*/
 
 function fimDeJogo(){
-    const oMelhor = document.querySelector('span')
+   // const oMelhor = document.querySelector('span')
     if(jogadas == qtdCartas/2 && pares == qtdCartas/2){
-        oMelhor.classList.add("parabens")
-        oMelhor.innerHTML = `<img src="img/parabens.gif" alt="">`
+        alert(`Finalizou o jogo em: ${jogadas} jogadas: Perfeito`)
+       // oMelhor.classList.add("parabens")
+        //oMelhor.innerHTML = `<img src="img/parabens.gif" alt="">`
+
     }else if(pares == qtdCartas/2){
+
         alert(`Finalizou o jogo em: ${jogadas} jogadas`)
     }
 }
