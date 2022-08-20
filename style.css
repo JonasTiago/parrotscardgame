@@ -40,8 +40,8 @@ main {
     transform-style: preserve-3d;
     width: 117px;
     height: 146px;
-    margin: 12px;
-    transition: all .10s;
+    margin: 30px;
+    transition: all .5s;
 }
 
 .face {
