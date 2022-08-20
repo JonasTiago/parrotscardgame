@@ -27,7 +27,7 @@ main {
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    width: 75vw;
+    width: 70vw;
     margin: auto;
     
 }
@@ -40,7 +40,7 @@ main {
     transform-style: preserve-3d;
     width: 117px;
     height: 146px;
-    margin: 34px;
+    margin: 12px;
     transition: all .10s;
 }
 
