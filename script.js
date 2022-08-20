@@ -81,3 +81,35 @@ function selecionarCarta(carta) {
         selecionadas.splice(0, (selecionadas.length))
      }
 }
+
+/* Comparando as cartas */
+let pares = 0;
+function comparandoCartas() {
+    if(primeiraCarta == segundaCarta){
+        console.log('igual')
+        pares++
+        setTimeout(fimDeJogo, 600)
+    } else{
+        console.log('diferente')
+        selecionadas.forEach( (carta)=> {
+            carta.classList.remove('giro')
+        })
+    }
+    primeiraCarta = 0; 
+    segundaCarta = 0;
+    jogadas++
+    return selecionadas.splice(0, 2)
+}
+
+
+/* Jogo0 finalizado*/
+
+function fimDeJogo(){
+    const oMelhor = document.querySelector('span')
+    if(jogadas == qtdCartas/2 && pares == qtdCartas/2){
+        oMelhor.classList.add("parabens")
+        oMelhor.innerHTML = `<img src="img/parabens.gif" alt="">`
+    }else if(pares == qtdCartas/2){
+        alert(`Finalizou o jogo em: ${jogadas} jogadas`)
+    }
+}
