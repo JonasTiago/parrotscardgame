@@ -38,10 +38,10 @@ main {
     display: flex;
     justify-content: space-around;
     transform-style: preserve-3d;
-    transition: all .10s;
     width: 117px;
     height: 146px;
     margin: 34px;
+    transition: all .10s;
 }
 
 .face {
