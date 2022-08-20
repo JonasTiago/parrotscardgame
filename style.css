@@ -1,40 +1,99 @@
 body {
     background-color: rgb(238, 249, 191);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-h1 {
+
+h1{
     color: rgb(117, 183, 158);
     text-align: center;
     text-transform: uppercase;
-    font-size: 56px;
+    font-size: 3.25em;
     font-weight: 700;
     font-family: Roboto, sans-serif;
+    margin: 40px auto;
+} 
+
+
+main {
+    align-items: center;
+    text-align: center;
 }
 
 .game-zone {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
-    width: 70vw;
-    margin: 0px auto;
+    flex-wrap: wrap;
+    width: 75vw;
+    margin: auto;
+    
 }
 
-.game-zone li {
+#carta {
     cursor: pointer;
-    background-color: rgb(167, 233, 175);
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    transform-style: preserve-3d;
+    transition: all .10s;
     width: 117px;
     height: 146px;
-    background-image: url(img/front.png);
-    background-size: 100px;
+    margin: 34px;
+}
+
+.face {
+    position: absolute;
     box-shadow: rgba(0, 0, 0, 0.216) 0px 0px 5px;
-    margin: 24px;
-    background-position: 50% center;
-    background-repeat: no-repeat;
-    list-style: none;
+    width: 117px;
+    height: 146px;
+    border: 1px solid rgb(153, 206, 168);
     border-radius: 5px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(153, 206, 168);
-    border-image: initial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#front {
+    background-color: #A7E9AF;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+#front img{
+    width: 100px;
+    height: 100px;
+}
+
+
+#back {
+    background-color: #A7E9AF;
+    backface-visibility: hidden;
+    background-image: url('img/front.png');
+    background-position: 50% center;
+    background-size: 100px;
+    background-repeat: no-repeat;
+}
+#back img{
+    width: 100px;
+    height: 100px;
+}
+
+.giro {
+    transform: rotateY(180deg);
+}
+
+
+
+@media (max-width:350px) {
+    
+    h1 { 
+        font-size: 2.25em;
+    }
+    main > div{
+        width: 100vw;
+        
+    }
+
 }
