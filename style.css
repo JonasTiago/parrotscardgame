@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
 body {
-    background-color: rgb(238, 249, 191);
+    background-color: #eef9be;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 
-h1{
+h1 {
     color: rgb(117, 183, 158);
     text-align: center;
     text-transform: uppercase;
@@ -15,6 +17,34 @@ h1{
     font-family: Roboto, sans-serif;
     margin: 40px auto;
 } 
+
+
+.tempo {
+    z-index: 10;
+    width: 125px;
+    height: 55px;
+    background-color: #75B79E;
+    color: white;
+    position: fixed;
+    right: 0;
+    top: 40px;
+    border-radius: 5px 0px 0 5px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.548);
+    border: 1px solid rgba(0, 0, 0, 0.432);
+}
+.tempo .vermelho {
+    color: #f00;
+}
+
+.tempo span {
+    font-family: 'Orbitron', sans-serif;
+    color: #eef9be;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.58);
+    font-size: 50px;
+    text-align: center;
+    margin: auto;
+    font-weight: 600;
+}
 
 
 main {
@@ -83,7 +113,6 @@ main {
 .giro {
     transform: rotateY(180deg);
 }
-
 
 
 @media (max-width:350px) {

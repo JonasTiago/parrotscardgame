@@ -41,7 +41,7 @@ function sortear(qtdCartas) {
     const todasAsCartas = [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6];
     let tipos = qtdCartas
     let escolhas = todasAsCartas.splice(0, tipos)
-    
+
     return escolhas
 }
 
@@ -51,13 +51,14 @@ function embaralhar() {
 }
 
 
-/* viranddo as cartas */
+/* selecionando as cartas */
 
 let primeiraCarta, segundaCarta;
 let selecionadas = []
 let jogadas = 0;
 
 function selecionarCarta(carta) {
+    jogadas++
     carta.classList.add("giro");
 
    if (!primeiraCarta) {
@@ -71,10 +72,11 @@ function selecionarCarta(carta) {
     }
 
     if(selecionadas.length == 2){
-        setTimeout(comparandoCartas, 800)
-     }
-     else if(selecionadas.length > 2){
+        setTimeout(comparandoCartas, 600)
+
+     } else if(selecionadas.length > 2){
         alert("Apenas duas cartas por vez")
+        
         selecionadas.forEach( (carta)=> {
             carta.classList.remove('giro')
         })
@@ -83,22 +85,22 @@ function selecionarCarta(carta) {
 }
 
 /* Comparando as cartas */
-let pares = 0;
+setInterval(tempo, 1000)
+
 function comparandoCartas() {
     if(primeiraCarta == segundaCarta){
-        pares++
-        setTimeout(fimDeJogo, 600)
+        fimDeJogo()
 
     } else{
+
         selecionadas.forEach( (carta)=> {
             carta.classList.remove('giro')
         })
-
+        
     }
 
     primeiraCarta = 0; 
     segundaCarta = 0;
-    jogadas++
     return selecionadas.splice(0, 2)
 }
 
@@ -106,14 +108,46 @@ function comparandoCartas() {
 /* Jogo0 finalizado*/
 
 function fimDeJogo(){
-   // const oMelhor = document.querySelector('span')
-    if(jogadas == qtdCartas/2 && pares == qtdCartas/2){
-        alert(`Finalizou o jogo em: ${jogadas} jogadas: Perfeito`)
-       // oMelhor.classList.add("parabens")
-        //oMelhor.innerHTML = `<img src="img/parabens.gif" alt="">`
+    
+    const cartasViradas = document.querySelectorAll('.giro')
 
-    }else if(pares == qtdCartas/2){
-
+    if(cartasViradas.length == qtdCartas){
+        
         alert(`Finalizou o jogo em: ${jogadas} jogadas`)
+        
+        let contador = 0;
+        while(contador === 0){
+
+            let resposta = prompt('Gostaria de jogar novamente?')
+
+            if(resposta == "sim"){
+                window.location.reload()
+                contador++;
+    
+            }else if(resposta == "não"){
+                alert('Ok')
+                contador++;
+            }else {
+                 alert("responda com 'sim' ou 'não'")
+            }
+        }
+
+    }
+
+}
+
+/*Cronometro*/
+
+let tempoCorrido = 0;
+function tempo(){
+    tempoCorrido++
+    const cronometro = document.querySelector('.tempo span')
+
+    console.log(tempoCorrido)
+    cronometro.innerHTML = `${tempoCorrido}`;
+
+    if(tempoCorrido == 59){
+        cronometro.classList.add('vermelho')
+        
     }
 }
